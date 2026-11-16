@@ -1,0 +1,8 @@
+{
+  "name": "校内公开课材料工作台",
+  "description": "教师评高级职称校内公开课全套材料一键生成、差异化样例智能编写、A4精准打印与Word导出工具。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

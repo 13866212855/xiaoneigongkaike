@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: var(--font-ui-sans), var(--font-zh-sans), "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono), monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Official Chinese SimSun document typography */
+.doc-simsun {
+  font-family: "SimSun", "NSimSun", "宋体", "Songti SC", var(--font-zh-serif), "STSong", serif;
+  color: #000000;
+}
+
+/* Editable highlight on screen only */
+.doc-editable {
+  outline: none;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.doc-editable:hover {
+  background-color: rgba(15, 23, 42, 0.03);
+}
+
+.doc-editable:focus {
+  background-color: rgba(37, 99, 235, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+/* A4 Sheet screen preview geometry: 210mm x 297mm */
+.a4-sheet {
+  width: 210mm;
+  height: 297mm;
+  padding: 18mm 20mm;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Strict A4 print layout */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-reset-container {
+    display: block !important;
+    width: 210mm !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    position: static !important;
+  }
+
+  .print-sheet-wrapper {
+    display: block !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-sheet-wrapper:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .print-box-reset {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-scale-reset {
+    width: 210mm !important;
+    height: 297mm !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .a4-sheet {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .doc-editable:hover,
+  .doc-editable:focus {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
